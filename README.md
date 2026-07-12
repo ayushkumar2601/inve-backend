@@ -188,23 +188,23 @@ sequenceDiagram
 
 ### Dashboard
 > *Apple Wallet / Stripe Analytics KPI Row with 6-month projected demand vs. actual stock reserve.*  
-![Executive Dashboard](https://raw.githubusercontent.com/ayushkumar2601/inve-front/main/public/screenshots/dashboard.png)
+![Executive Dashboard](./public/dashboard.png)
 
 ### AI War Room
 > *Executive Operations Center displaying quantitative Revenue at Risk and 1-Click PO execution cards.*  
-![AI War Room](https://raw.githubusercontent.com/ayushkumar2601/inve-front/main/public/screenshots/war-room.png)
+![AI War Room](./public/war-room.png)
 
 ### Executive Copilot
 > *ChatGPT Enterprise / Apple Intelligence conversational workspace with structured 3-part briefs.*  
-![Executive Copilot](https://raw.githubusercontent.com/ayushkumar2601/inve-front/main/public/screenshots/copilot.png)
+![Executive Copilot](./public/copilot.png)
 
 ### Digital Twin
 > *Bloomberg Terminal what-if stochastic simulation controls and 12-week forward horizon.*  
-![Digital Twin Sim](https://raw.githubusercontent.com/ayushkumar2601/inve-front/main/public/screenshots/simulation.png)
+![Digital Twin Sim](./public/dashboard.png)
 
 ### Procurement Agent & Multi-Agent Layer
 > *Mission Control registry tracking autonomous EDI pipelines and inter-agent consensus topology.*  
-![Multi-Agent Layer](https://raw.githubusercontent.com/ayushkumar2601/inve-front/main/public/screenshots/agents.png)
+![Multi-Agent Layer](./public/war-room.png)
 
 ---
 
