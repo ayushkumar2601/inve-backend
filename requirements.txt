@@ -21,7 +21,7 @@ temporalio==1.4.0
 structlog==23.1.0
 
 # Async and WebSocket support
-asyncio
+# asyncio
 websockets==11.0.3
 
 # Data processing and analytics
@@ -36,7 +36,7 @@ pytest==7.4.2
 pytest-asyncio==0.21.1
 
 # Email and notifications (optional)
-smtplib
+# smtplib
 
 # JSON and data serialization
 dataclasses-json==0.5.14
