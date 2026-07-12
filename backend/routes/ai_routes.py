@@ -404,4 +404,98 @@ class PerformanceBenchmark(Resource):
                 
         except Exception as e:
             logger.error("Benchmark API error", error=str(e))
+            return {'status': 'error', 'message': str(e)}, 500
+
+
+@ai_ns.route('/war-room')
+class AIWarRoomRoute(Resource):
+    """AI War Room Command Center - P0"""
+
+    @ai_ns.doc('get_war_room')
+    def get(self):
+        """Get real-time AI War Room command center overview and 50+ risk feed events"""
+        try:
+            from backend.services.war_room_service import WarRoomService
+            data = WarRoomService.get_command_center_overview()
+            return {'status': 'success', 'data': data}, 200
+        except Exception as e:
+            logger.error("War room API error", error=str(e))
+            return {'status': 'error', 'message': str(e)}, 500
+
+
+@ai_ns.route('/copilot')
+class AICopilotRoute(Resource):
+    """Executive Copilot - P0 Executive AI Analyst"""
+
+    @ai_ns.doc('query_copilot')
+    def get(self):
+        """Analyze executive business question with structured Root Cause, Impact, Risk, and Actions"""
+        try:
+            from backend.services.copilot_service import CopilotService
+            query = request.args.get('query', 'Why did inventory costs increase?')
+            analysis = CopilotService.analyze_query(query)
+            return {'status': 'success', 'data': analysis}, 200
+        except Exception as e:
+            logger.error("Copilot API error", error=str(e))
+            return {'status': 'error', 'message': str(e)}, 500
+
+
+@ai_ns.route('/agents/procurement')
+class AIProcurementAgentRoute(Resource):
+    """Autonomous Procurement Agent Pipeline - P1"""
+
+    @ai_ns.doc('get_procurement_agent')
+    def get(self):
+        """Get autonomous procurement agent workflow steps and 100 demo agent activities"""
+        try:
+            from backend.services.procurement_agent_service import ProcurementAgentService
+            data = ProcurementAgentService.get_procurement_dashboard()
+            return {'status': 'success', 'data': data}, 200
+        except Exception as e:
+            logger.error("Procurement agent API error", error=str(e))
+            return {'status': 'error', 'message': str(e)}, 500
+
+
+@ai_ns.route('/simulation')
+class AISimulationRoute(Resource):
+    """Supply Chain Digital Twin Simulator - P1"""
+
+    @ai_ns.doc('run_simulation_get')
+    def get(self):
+        """Run What-If supply chain digital twin simulation"""
+        try:
+            from backend.services.simulation_service import SimulationService
+            params = request.args.to_dict()
+            data = SimulationService.run_simulation(params)
+            return {'status': 'success', 'data': data}, 200
+        except Exception as e:
+            logger.error("Simulation API error", error=str(e))
+            return {'status': 'error', 'message': str(e)}, 500
+
+    @ai_ns.doc('run_simulation_post')
+    def post(self):
+        """Run What-If supply chain digital twin simulation via POST payload"""
+        try:
+            from backend.services.simulation_service import SimulationService
+            payload = request.get_json(silent=True) or {}
+            data = SimulationService.run_simulation(payload)
+            return {'status': 'success', 'data': data}, 200
+        except Exception as e:
+            logger.error("Simulation API error", error=str(e))
+            return {'status': 'error', 'message': str(e)}, 500
+
+
+@ai_ns.route('/agents')
+class AIAgentsRoute(Resource):
+    """Multi-Agent Collaboration Layer - P2"""
+
+    @ai_ns.doc('get_agents')
+    def get(self):
+        """Get 5 autonomous agents status, cards, and communication graph"""
+        try:
+            from backend.services.agent_orchestrator_service import AgentOrchestratorService
+            data = AgentOrchestratorService.get_agent_network_status()
+            return {'status': 'success', 'data': data}, 200
+        except Exception as e:
+            logger.error("Agents API error", error=str(e))
             return {'status': 'error', 'message': str(e)}, 500 

@@ -43,15 +43,18 @@ def mock_snowflake_connection():
 def sample_product():
     """Sample product data for testing"""
     return {
-        '_id': 'sample_id',
+        '_id': '507f1f77bcf86cd799439011',
         'product_id': 'PROD001',
+        'sku': 'SKU-001',
         'name': 'Sample Product',
-        'current_stock': 50,
-        'max_stock': 100,
-        'reorder_point': 20,
-        'supplier': 'Sample Supplier',
         'category': 'Electronics',
-        'unit_cost': 10.0,
+        'supplier_id': 'SUPP-001',
+        'current_stock': 50,
+        'reorder_threshold': 20,
+        'reorder_quantity': 50,
+        'cost_price': 10.0,
+        'selling_price': 20.0,
+        'status': 'active',
         'last_updated': datetime.utcnow()
     }
 
@@ -119,6 +122,26 @@ def mock_minimax_api():
         }
         """
     }
+
+@pytest.fixture
+def sample_product_data(sample_product):
+    """Alias for sample_product"""
+    return sample_product
+
+@pytest.fixture
+def app():
+    """Create Flask application for testing"""
+    from backend.app import create_app
+    app = create_app()
+    app.config.update({
+        "TESTING": True,
+    })
+    return app
+
+@pytest.fixture
+def client(app):
+    """Create Flask test client"""
+    return app.test_client()
 
 # Test markers
 def pytest_configure(config):

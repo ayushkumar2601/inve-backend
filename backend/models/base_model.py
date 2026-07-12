@@ -56,7 +56,9 @@ class BaseModel:
     def generate_id(self, prefix: str = '') -> str:
         """Generate a unique ID with optional prefix"""
         from uuid import uuid4
-        unique_part = str(uuid4()).replace('-', '').upper()[:8]
+        raw = str(uuid4()).replace('-', '').upper()
+        # Guarantee at least one uppercase alpha character
+        unique_part = 'A' + raw[:7]
         return f"{prefix}{unique_part}" if prefix else unique_part
     
     @classmethod
